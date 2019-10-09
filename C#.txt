@@ -1,0 +1,58 @@
+﻿có 1 content menu mà 2 item sử dụng muốn biết dc item nào đc gọi
+ - contentmenu.sourcecontrol as (kieu_du_lieu)
+-----------------contextmenu---------------------
+ - nhấp phải item sẽ hiện lên menu
+
+-------------------toolbar-----------------------
+ - Hiển thị các lệnh dùng thường xuyên (phía dưới menutrip)
+ - Tạo toolbar:
+ + ToolStripContainer (xác định ví trí để toolbar)
+ + Toolstrip (gán lệnh)
+
+-------------------statusbar---------------------
+ - Thanh điều hướng phía dưới (hiện thị số trang, qua trang, quay lại....)
+
+-------------------background worked--------------
+
+
+-------------------tabcontrol--------------------
+event: selectedindexchanged
+imageslist: đưa hình vào tab
+tabpages->imageindex: gán vị trí hình
+
+--------------------dialog thường dùng-------------------
+ - openFileDialog
+picturebox: sizeMode: stretch
+filename: ""
+OpenFileDialog: filter:*.png|*.*(được phép chọn file png hay tất cả)
+ - SaveFileDialog
+tương tự open
+ - ColorDialog
+tương tự open
+ - FolderBrowerDialog
+
+-------------------file text-----------------------
+streamwriter: lưu file
+streamreader: đọc file
+
+-------------------ado.net-------------------------
+ - sqlconnection: là đối tượng để kết nối tới csdl thông qua chuỗi: Ten_server, Ten_CSDL, Ten_User, Pass..)
+ + Các phương thức chính: open, close
+ + Được sử dụng bởi lớp sqlcommand
+ - sqlcommand: là quá trình tương tác vs csdl cần phải biết hành động nào bạn muốn xảy ra
+ + Gửi một câu lệnh sql tới database
+ + Sqlcommand dùng sqlconnection để xác định database nào để truy xuất sau đó trả về 1 tập dữ liệu hoặc ko
+ - sqlparameter: là đối tượng để gán các biến cho câu truy vấn trong sqlcommand
+ - sqldatareader: cho ta lấy đc kết quả của câu lệnh select từ một đối tượng sqlcommand
+ - dataset: thể hiện dữ liệu trong bộ nhớ, chứa nhìu đối tượng datatable, trong datatable lại có nhìu cột và dòng, giống như các datatable
+thông thường ta thậm chí còn có thể định nghĩa dữ liệu giữa các table để tạo ra các quan hệ Master-detail
+ + Được thiết kế đặc biệt để giúp quản lý dữ liệu trong bộ nhớ và để hỗ trợ các thao tác không cần kết nối trên dữ liệu
+ + Là một obj dc dùng bởi tất cả data provider đó là lý do tại sao nó ko có một data provider prefix trong tên gọi
+ + Có thể dùng sqldataadapter để đổ dữ liệu vào dataset
+ - sqlDataAdapter:
+
+--------------------executescalar-----------------
+ - Là hàm trả về số lượng
+
+--------------------execulereader-------------------
+ - Trả về 1 dòng dữ liệu
